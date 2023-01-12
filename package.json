@@ -9,7 +9,8 @@
   },
   "private": true,
   "scripts": {
-    "start": "wrangler dev",
+    "dev": "wrangler dev",
+    "local": "wrangler dev --experimentatal-local",
     "deploy": "wrangler publish"
   },
   "dependencies": {
