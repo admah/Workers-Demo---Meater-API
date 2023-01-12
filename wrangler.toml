@@ -4,11 +4,7 @@ compatibility_date = "2022-11-11"
 usage_model = "bundled"
 env = { }
 
-kv_namespaces = [
-  { binding = "BRISKET_TEMP", id = "1cd2410999c142cf90dae65977e23cda", preview_id = "1f63031b5bf44643a04e6024d5909321" }
-]
-
-[vars]
+compatibility_flags = ["streams_enable_constructors"]
 
 [triggers]
 crons = [ ]
