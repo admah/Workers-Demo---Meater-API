@@ -1,9 +1,9 @@
-declare global {
-  const MEATER_USER: string;
-  const MEATER_PASS: string;
-}
-
 import ky from "ky";
+
+export interface Env {
+  MEATER_USER: string;
+  MEATER_PASS: string;
+}
 
 const meaterHost = "https://public-api.cloud.meater.com/v1";
 
@@ -11,27 +11,31 @@ function celToFar(temp: string) {
   return Math.trunc((+temp * 9) / 5 + 32) + "\xB0F.";
 }
 
-async function authAndReturnToken() {
-  const authUrl = meaterHost + "/login";
-  const creds: { email: string; password: string } = {
-    email: MEATER_USER,
-    password: MEATER_PASS,
-  };
+const worker: ExportedHandler<Env> = {
+  async fetch(
+    request: Request,
+    env: Env,
+    ctx: ExecutionContext
+  ): Promise<Response> {
+    async function authAndReturnToken() {
+      const authUrl = meaterHost + "/login";
+      const creds: { email: string; password: string } = {
+        email: env.MEATER_USER,
+        password: env.MEATER_PASS,
+      };
 
-  const init: any = {
-    json: {
-      creds,
-    },
-    credentials: undefined,
-  };
+      const init: any = {
+        json: {
+          creds,
+        },
+        credentials: undefined,
+      };
 
-  const authResponse: any = await ky.post(authUrl, init).json();
+      const authResponse: any = await ky.post(authUrl, init).json();
 
-  return authResponse.data.token;
-}
+      return authResponse.data.token;
+    }
 
-const worker: ExportedHandler = {
-  async fetch() {
     const deviceUrl = meaterHost + "/devices";
     const authToken = await authAndReturnToken();
     const headers = {
