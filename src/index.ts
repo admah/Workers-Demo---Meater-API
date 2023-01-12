@@ -25,9 +25,7 @@ const worker: ExportedHandler<Env> = {
       };
 
       const init: any = {
-        json: {
-          creds,
-        },
+        json: creds,
         credentials: undefined,
       };
 
@@ -52,9 +50,7 @@ const worker: ExportedHandler<Env> = {
     const html = `<!DOCTYPE html>
 <body>
   <h1>Hello!</h1>
-  <p>My name is Adam, and I'm ${
-    inUse ? "" : "not"
-  } currently using my Meater+.</p>
+  <p>I'm ${inUse ? "" : "not"} currently using my Meater+.</p>
   ${
     inUse
       ? `<p>Today I'm cooking a ${devices[0].cook.name.toLowerCase()} with a target temp of ${celToFar(
