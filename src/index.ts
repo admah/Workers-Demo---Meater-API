@@ -14,9 +14,10 @@ function celToFar(temp: string) {
 async function authAndReturnToken() {
   const authUrl = meaterHost + "/login";
   const creds: { email: string; password: string } = {
-    email: globalThis.MEATER_USER,
-    password: globalThis.MEATER_PASS,
+    email: MEATER_USER,
+    password: MEATER_PASS,
   };
+
   const init: any = {
     json: {
       creds,
