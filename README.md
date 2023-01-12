@@ -1,12 +1,12 @@
 # Edge-Meater-Widget
 
-This repo contains a Cloudflare Worker that authenticates to the Meater Cloud and returns data from active devices. \
+This repo contains a Cloudflare Worker that authenticates to the Meater Cloud and returns data from active devices.
 
 For this to work, will need to have:
 
-- a Meater+ thermometer
-- an active Meater Cloud account
-- Cloudflare Workers CLI installed locally ([instructions](https://developers.cloudflare.com/workers/wrangler/install-and-update/))
+- a Meater+ thermometer. [Here's a link](https://glnk.io/o7jz/drivewaypitmaster) to buy one for 10% off!
+- an active Meater Cloud account.
+- Cloudflare Workers CLI installed locally ([instructions](https://developers.cloudflare.com/workers/wrangler/install-and-update/)).
 
 ## Installation
 
