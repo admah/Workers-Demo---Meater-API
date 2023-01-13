@@ -12,13 +12,15 @@ function returnHtml(deviceResponse: any) {
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <div x-data class="container mx-auto p-2 flex rounded-sm outline outline-offset-2 outline-1 shadow-sm">
-      <p>I'm ${inUse ? "" : "not"} currently using my Meater+.</p>
       ${
         inUse
-          ? `<p>Today I'm cooking a ${devices[0].cook.name.toLowerCase()} with a target temp of ${celToFar(
+          ? `<div x-data class="container mx-auto p-2 flex justify-center rounded-sm outline outline-offset-2 outline-1 shadow-sm">
+                <div class="">
+                  <p class="text-center">Today I'm cooking a ${devices[0].cook.name.toLowerCase()} using my Meater+, with a target temp of ${celToFar(
               devices[0].cook.temperature.target
-            )}</p'>`
+            )}</p>
+                </div>
+              </div>`
           : ""
       }
     </div>
