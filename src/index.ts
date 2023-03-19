@@ -9,10 +9,6 @@ export interface Env {
 
 const meaterHost = "https://public-api.cloud.meater.com/v1";
 
-function celToFar(temp: string) {
-  return Math.trunc((+temp * 9) / 5 + 32) + "\xB0F.";
-}
-
 async function authAndReturnToken(env: Env) {
   const authUrl = meaterHost + "/login";
   const creds: { email: string; password: string } = {
