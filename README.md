@@ -16,5 +16,6 @@ For this to work, will need to have:
 4. [Publish](https://developers.cloudflare.com/workers/wrangler/commands/#publish) the Worker via Wrangler.
 5. Visit the Worker URL after setting up a cook and starting it to display what you are cooking and the current internal temp.
 
+## Usage
 
-
+You can use this as-is or import it into a site via an iFrame.
