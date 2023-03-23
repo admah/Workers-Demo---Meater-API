@@ -40,6 +40,8 @@ coverage
 
 bower_components
 
+.DS_store
+
 # node-waf configuration
 
 .lock-wscript

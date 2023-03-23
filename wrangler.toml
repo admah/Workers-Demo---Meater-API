@@ -1,10 +1,21 @@
-name = "meater"
+name = "meater-dev"
 main = "src/index.ts"
 compatibility_date = "2022-11-11"
 usage_model = "bundled"
-env = { }
+route = "dev.drivewaypitmaster.com/*"
+vars = { ENVIRONMENT = "dev" }
 
 compatibility_flags = ["streams_enable_constructors"]
 
 [triggers]
 crons = [ ]
+
+[env.production]
+name = "meater"
+route = "meater.admah.workers.dev/*"
+vars = { ENVIRONMENT = "production" }
+
+[env.staging]
+name = "meater-staging"
+route = "staging.drivewaypitmaster.com/*"
+vars = { ENVIRONMENT = "staging" }

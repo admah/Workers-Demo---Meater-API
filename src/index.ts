@@ -32,6 +32,7 @@ const worker: ExportedHandler<Env> = {
     env: Env,
     ctx: ExecutionContext
   ): Promise<Response> {
+    console.log("🚀 ~ file: index.ts:35 ~ env:", env);
     const deviceUrl = meaterHost + "/devices";
     const authToken = await authAndReturnToken(env);
     const headers = {
@@ -41,7 +42,10 @@ const worker: ExportedHandler<Env> = {
       headers,
       credentials: undefined,
     };
+
     const deviceResponse: any = await ky.get(deviceUrl, init).json();
+    // const originalResponse = await fetch(request);
+    // console.log("🚀 ~ file: index.ts:46 ~ originalResponse:", originalResponse);
 
     const html = returnHtml(deviceResponse);
 
